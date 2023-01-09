@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block body %}
+    <h2>Search results</h2>
+    <hr>
+
+    {% if results %}
+        {% for entry in results %}
+            <h5>
+                <a href="{% url 'wiki' entry %}">{{ entry }}</a>
+            </h5>
+        {% endfor %}
+    {% else %}
+        <h4>No page found :(</h4>
+        <a href="{% url 'index' %}">Return to main page</a>
+    {% endif %}
+{% endblock %}
